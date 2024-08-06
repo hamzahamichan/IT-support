@@ -1,9 +1,6 @@
 package com.H.IT.IT_support_Service.Model.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
@@ -19,4 +16,7 @@ public class Panne {
         private Date dateReparation;
         private String etat;
 
+    @ManyToOne
+    @JoinColumn(name ="id_equipement")
+    private  Equipement equipement;
 }

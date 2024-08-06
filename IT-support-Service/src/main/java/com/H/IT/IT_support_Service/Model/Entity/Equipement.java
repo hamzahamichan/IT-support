@@ -1,10 +1,9 @@
 package com.H.IT.IT_support_Service.Model.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity @Getter @Setter @AllArgsConstructor @NoArgsConstructor @Builder
 public class Equipement {
@@ -15,5 +14,13 @@ public class Equipement {
         private String type;
         private String marque;
          private String etats;
+
+    @OneToMany(mappedBy ="equipement")
+    List<Panne>pannes;
+
+    @ManyToOne
+    @JoinColumn(name = "id_admin")
+    private Admin admin;
+
     }
 
