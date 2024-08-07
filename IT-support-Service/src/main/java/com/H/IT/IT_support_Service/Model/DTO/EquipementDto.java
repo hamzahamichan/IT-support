@@ -16,6 +16,7 @@ public class EquipementDto {
        return EquipementDto.builder()
              .id_equipement(entity.getId_equipement())
               .nom(entity.getNom())
+               .type(entity.getType())
                .etats(entity.getEtats())
                 .marque(entity.getMarque())
                .build();
