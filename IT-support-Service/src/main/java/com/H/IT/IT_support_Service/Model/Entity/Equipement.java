@@ -1,5 +1,6 @@
 package com.H.IT.IT_support_Service.Model.Entity;
 
+import com.H.IT.IT_support_Service.Model.DTO.EquipementDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -15,12 +16,22 @@ public class Equipement {
         private String marque;
          private String etats;
 
-    @OneToMany(mappedBy ="equipement")
-    List<Panne>pannes;
+    @OneToMany(mappedBy = "equipement")
+    private List<HistoriquesPannes> historiquesPannes;
 
     @ManyToOne
     @JoinColumn(name = "id_admin")
     private Admin admin;
+
+    public Equipement toEntity(EquipementDto dto){
+        return Equipement.builder()
+                .id_equipement(dto.getId_equipement())
+                .nom(dto.getNom())
+                .etats(dto.getEtats())
+                .marque(dto.getMarque())
+                .type(dto.getType())
+                .build();
+    }
 
     }
 

@@ -1,8 +1,6 @@
 package com.H.IT.IT_support_Service.Model.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
@@ -12,11 +10,17 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
-public class Admin extends Personne{
+@Builder
+public class Admin {
+ @Id
+ @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id_admin;
+    private String nom_complet;
+    private String email; // Utilisez camelCase pour les noms de variables
+    private String password;
+   private Role role;
+    @OneToMany(mappedBy = "admin")
+    private List<Equipement> equipements;
     @OneToMany(mappedBy = "admin")
     private List<TicketSupport> tickets;
-
-
-
 }

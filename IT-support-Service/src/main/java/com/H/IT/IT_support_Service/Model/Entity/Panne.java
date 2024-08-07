@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder @NoArgsConstructor @AllArgsConstructor
@@ -11,12 +12,19 @@ import java.util.Date;
 public class Panne {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int id_panne;
+        private String Type;
         private String description;
         private Date dateDeclaration;
         private Date dateReparation;
         private String etat;
 
-    @ManyToOne
-    @JoinColumn(name ="id_equipement")
-    private  Equipement equipement;
+
+        @ManyToMany
+        List<Equipement> equipements;
+
+    @OneToMany(mappedBy = "panne")
+    private List<HistoriquesPannes> historiquesPannes;
+
+    @OneToMany(mappedBy = "panne")
+    private List<TicketSupport> tickets;
 }

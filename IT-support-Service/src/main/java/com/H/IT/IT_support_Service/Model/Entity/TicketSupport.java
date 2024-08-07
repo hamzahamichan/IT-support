@@ -18,7 +18,14 @@ public class TicketSupport {
 
     @ManyToOne
     @JoinColumn(name = "id_user")
-    private User user;
+    private Utilisateur utilisateur;
+
+
+    @ManyToOne
+            (cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_panne")
+    private Panne panne;
+
 
     @ManyToOne
     @JoinColumn(name = "id_technicien")

@@ -11,14 +11,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Utilisateur {
+public class Technicien  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_user;
+    private int id_Tech;
     private String nom_complet;
-    private String email; // Utilisez camelCase pour les noms de variables
+    private String email;
+    private String specialite;// Utilisez camelCase pour les noms de variables
     private String password;
-    private Role role;
-    @OneToMany(mappedBy = "utilisateur")
+ private  Role role;
+    @OneToMany(mappedBy = "technicien")
     private List<TicketSupport> tickets;
 }
