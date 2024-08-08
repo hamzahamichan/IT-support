@@ -10,18 +10,18 @@ import java.util.List;
 public class Equipement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id_equipement;
-        private String nom;
-        private String type;
-        private String marque;
-         private String etats;
-
-    @OneToMany(mappedBy = "equipement")
-    private List<HistoriquesPannes> historiquesPannes;
+    private int id_equipement;
+    private String nom;
+    private String type;
+    private String marque;
+    private String etats;
 
     @ManyToOne
     @JoinColumn(name = "id_admin")
     private Admin admin;
+
+    @OneToMany(mappedBy = "equipement")
+    private List<Panne> Pannes;
 
     public Equipement toEntity(EquipementDto dto){
         return Equipement.builder()
@@ -32,6 +32,4 @@ public class Equipement {
                 .type(dto.getType())
                 .build();
     }
-
-    }
-
+}
