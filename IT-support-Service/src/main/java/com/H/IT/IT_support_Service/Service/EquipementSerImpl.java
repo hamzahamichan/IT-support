@@ -37,12 +37,8 @@ public class EquipementSerImpl implements EquipementService{
 
     }
 
-    public EquipementDto getEquipement(Integer id_equipement) {
-        Optional<Equipement>equi = this.equipementRepository.findById(id_equipement);
-        if(equi.isPresent())
-       return EquipementDto.toDto(equi.get());
-        else
-            return null;
+    public Optional<Equipement> getEquipement(Integer id) {
+       return this.equipementRepository.findById(id);
     }
 
 
