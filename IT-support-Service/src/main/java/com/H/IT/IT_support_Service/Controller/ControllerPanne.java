@@ -4,10 +4,7 @@ import com.H.IT.IT_support_Service.Model.DTO.PanneDto;
 import com.H.IT.IT_support_Service.Model.Entity.Panne;
 import com.H.IT.IT_support_Service.Service.PanneService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/Panne_List")
@@ -21,4 +18,8 @@ public class ControllerPanne {
        return PanneDto.toDto(this.panneService.addPanne(panne));
     }
 
+    @GetMapping("/getBy")
+    public PanneDto getPanne(@PathVariable int id){
+        return this.panneService.getPanne(id);
+    }
 }
