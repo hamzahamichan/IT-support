@@ -6,6 +6,9 @@ import com.H.IT.IT_support_Service.Service.EquipementSerImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @RestController()
 @RequestMapping("/equipement")
@@ -20,11 +23,15 @@ public class EquipementController {
         return this.equipementSer.addEquipement(equipementDto);
     }
 
-    @GetMapping("/get")
-    public EquipementDto getEquipement(@RequestParam Integer id) {
+    @GetMapping("/getEqui")
+    public Optional<Equipement> getEquipement(@RequestParam Integer id) {
         return this.equipementSer.getEquipement(id);
     }
 
+    @GetMapping("/getAll")
+   public List<Equipement> getEquipements(){
+        return this.equipementSer.getEquipements();
+   }
     @DeleteMapping("/{id_equipement}")
     public void deleteEquipements(@PathVariable int id_equipement) {
         equipementSer.deleteEquipements(id_equipement);
