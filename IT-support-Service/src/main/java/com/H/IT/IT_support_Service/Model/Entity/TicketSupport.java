@@ -17,7 +17,6 @@ public class TicketSupport {
     private LocalDate date_creation;
     @Enumerated(EnumType.STRING)
     private Ticket Etat;
-    private Date date_traitement;
 
     @ManyToOne
     @JoinColumn(name = "id_user")
@@ -30,11 +29,14 @@ public class TicketSupport {
     private Panne panne;
 
 
-    @ManyToOne
-    @JoinColumn(name = "id_technicien")
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "technicien_id")
     private Technicien technicien;
+
 
     @ManyToOne
     @JoinColumn(name = "id_admin")
     private Admin admin;
+
+
 }
