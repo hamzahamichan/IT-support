@@ -18,6 +18,6 @@ public class TicketController {
     TicketSerImpl ticketSer;
 @PostMapping("/add-ticket")
     public TicketSupportDto addTicketSupport(@RequestBody TicketSupport ticketSupport){
-    return this.ticketSer.addTicketSupport(ticketSupport);
+    return TicketSupportDto.toDto(this.ticketSer.addTicketSupport(ticketSupport));
 }
 }
