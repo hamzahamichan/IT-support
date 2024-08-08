@@ -17,9 +17,8 @@ public class Technicien  {
     private int id_Tech;
     private String nom_complet;
     private String email;
-    private String specialite;// Utilisez camelCase pour les noms de variables
     private String password;
- private  Role role;
+    private  Role role;
     @OneToMany(mappedBy = "technicien")
     private List<TicketSupport> tickets;
 }
