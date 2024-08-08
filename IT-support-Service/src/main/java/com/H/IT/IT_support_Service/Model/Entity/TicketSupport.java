@@ -1,8 +1,10 @@
 package com.H.IT.IT_support_Service.Model.Entity;
 
+import com.H.IT.IT_support_Service.Enum.Ticket;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -12,8 +14,9 @@ public class TicketSupport {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_ticket;
     private String description;
-    private Date date_creation;
-    private String Etat;
+    private LocalDate date_creation;
+    @Enumerated(EnumType.STRING)
+    private Ticket Etat;
     private Date date_traitement;
 
     @ManyToOne
