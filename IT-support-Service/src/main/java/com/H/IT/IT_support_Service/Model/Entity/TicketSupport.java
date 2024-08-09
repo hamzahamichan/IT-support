@@ -38,5 +38,4 @@ public class TicketSupport {
     @JoinColumn(name = "id_admin")
     private Admin admin;
 
-
 }

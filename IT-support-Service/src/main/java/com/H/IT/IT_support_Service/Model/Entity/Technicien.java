@@ -6,19 +6,7 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-public class Technicien  {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_Tech;
-    private String nom_complet;
-    private String email;
-    private String password;
-    private  Role role;
+public class Technicien extends Personne {
     @OneToMany(mappedBy = "technicien")
     private List<TicketSupport> tickets;
 }

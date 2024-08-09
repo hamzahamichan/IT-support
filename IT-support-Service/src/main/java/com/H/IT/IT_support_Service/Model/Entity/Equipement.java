@@ -23,6 +23,7 @@ public class Equipement {
     @OneToMany(mappedBy = "equipement")
     private List<Panne> Pannes;
 
+
     public Equipement toEntity(EquipementDto dto){
         return Equipement.builder()
                 .id_equipement(dto.getId_equipement())
