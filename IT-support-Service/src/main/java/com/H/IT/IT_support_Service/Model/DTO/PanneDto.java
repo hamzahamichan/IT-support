@@ -14,6 +14,7 @@ import java.util.Date;
 public class PanneDto {
     private int id_panne;
     private int id_equipement;
+    private String Type;
     private String description;
     private Date dateDeclaration;
     private Date dateReparation;
@@ -22,10 +23,7 @@ public class PanneDto {
     public static PanneDto toDto(Panne panned) {
         return PanneDto.builder()
                 .id_panne(panned.getId_panne())
-                .description(panned.getDescription())
-                .dateDeclaration(panned.getDateDeclaration())
-                .dateReparation(panned.getDateReparation())
-                .etat(panned.getEtat())
+                .Type(panned.getType())
                 .build();
     }
 }
